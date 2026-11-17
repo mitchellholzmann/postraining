@@ -329,7 +329,7 @@ function renderItems() {
       class: 'tile relative flex flex-col items-center justify-center px-1 font-semibold leading-tight text-center overflow-hidden',
       style: `background:${it[2]}`,
       onclick: () => tapItem(it),
-    }, h('span', {}, it[0]), h('span', {}, it[3] ? '0' : String(it[1])),
+    }, h('span', {}, it[0]), h('span', {}, it[3] ? '0' : it[1] + (it[4] ? '*' : '')),
     it[3] ? h('span', { class: 'absolute bottom-0.5 right-1 text-xs opacity-80' }, '≡') : null)));
 }
 

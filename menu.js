@@ -1,6 +1,7 @@
 // Menu data for the training POS. Edit freely.
 //
-// Item format: [name, price, color, sized]
+// Item format: [name, price, color, sized, '?']
+//   '?'    - optional: marks the price as a guess (shown with * on the tile).
 //   price  - NOK incl. MVA. For sized items this is the TALL price.
 //   sized  - true = the till asks for Tall / Grande (+5) / Venti (+10).
 //
@@ -144,10 +145,64 @@ const MENU = {
     ['TGTG Lykkepose', 54, C.light],
   ],
 
-  // No photos of these screens yet - add items in the same format.
-  pastries: [],
-  otherbev: [],
-  tea: [],
+  // The four categories below were filled from the public starbucks.no menu (names only).
+  // The site lists no prices, tile order or colours, so those are all guesses, marked '?'.
+  // Guessed prices show with a * on the tile. Replace from photos of the real till.
+  // The remaining empty categories have no public source.
+  pastries: [
+    ['Croissant', 39, C.tan, false, '?'],
+    ['Croissant nougat chocolate', 45, C.tan, false, '?'],
+    ['Croissant with almond', 45, C.tan, false, '?'],
+    ['Cinnamon bun', 45, C.gold, false, '?'],
+    ['Cardamom and vanilla bun', 45, C.gold, false, '?'],
+    ['Cinnamon Roll', 49, C.gold, false, '?'],
+    ['Triple Chocolate Muffin', 45, C.steel, false, '?'],
+    ['Blueberry Muffin', 45, C.steel, false, '?'],
+    ['Triple Chocolate Cookie', 39, C.navy, false, '?'],
+    ['Milk Chocolate Cookie', 39, C.navy, false, '?'],
+    ['Chocolate cake', 62, C.red, false, '?'],
+    ['Strawberry Cheesecake', 62, C.red, false, '?'],
+    ['New York Cheesecake', 62, C.red, false, '?'],
+    ['Lemon Loaf', 49, C.red, false, '?'],
+    ['Waffle', 49, C.orange, false, '?'],
+  ],
+  otherbev: [
+    ['Bonaqua lemon, sparkling 0,5L', 35, C.sky, false, '?'],
+    ['Bonaqua natural, sparkling 0,5L', 35, C.sky, false, '?'],
+    ['Bonaqua natural, still 0,5L', 35, C.sky, false, '?'],
+    ['Hervik orange juice 0,33L', 42, C.orange, false, '?'],
+    ['Hervik apple juice 0,33L', 42, C.orange, false, '?'],
+    ['Kuli with apple', 32, C.sage, false, '?'],
+    ['Kuli with orange', 32, C.sage, false, '?'],
+    ['Kuli with strawberry', 32, C.sage, false, '?'],
+  ],
+  tea: [
+    ['Chamomile Herbal Blend Tea', 42, C.sage, true, '?'],
+    ['Mint Citrus Tea', 42, C.sage, true, '?'],
+    ['Chai Tea', 42, C.sage, true, '?'],
+    ['Mint Herbal Blend Tea', 42, C.sage, true, '?'],
+    ['Hibiscus Herbal Blend Tea', 42, C.sage, true, '?'],
+    ['English Breakfast Tea', 42, C.sage, true, '?'],
+    ["Emperor's Clouds & Mist Tea", 42, C.sage, true, '?'],
+    ['Earl Grey Tea', 42, C.sage, true, '?'],
+    ['Youthberry Tea', 42, C.sage, true, '?'],
+    ['Jasmine Pearls Tea', 42, C.sage, true, '?'],
+    ['Matcha Green Tea Latte', 65, C.gold, true, '?'],
+    ['Classic Chai Tea Latte', 63, C.gold, true, '?'],
+    ['Iced Black Tea', 49, C.teal, true, '?'],
+    ['Iced Black Tea Lemonade', 55, C.teal, true, '?'],
+    ['Iced Green Tea', 49, C.teal, true, '?'],
+    ['Iced Green Tea Lemonade', 55, C.teal, true, '?'],
+    ['Iced Hibiscus Tea', 49, C.teal, true, '?'],
+    ['Iced Hibiscus Tea Lemonade', 55, C.teal, true, '?'],
+    ['Iced Matcha Green Tea Latte', 65, C.blue, true, '?'],
+    ['Iced Chai Tea Latte', 63, C.blue, true, '?'],
+    ['Mango Dragonfruit Refresha®', 59, C.red, true, '?'],
+    ['Coconut Mango Dragonfruit Refresha®', 62, C.red, true, '?'],
+    ['Cool Lime Starbucks Refresha®', 59, C.red, true, '?'],
+    ['Strawberry Açaí Starbucks Refresha®', 59, C.red, true, '?'],
+    ['Pink Coconut Starbucks Refresha®', 62, C.red, true, '?'],
+  ],
   merch: [],
   mug: [],
   bean: [],
@@ -155,7 +210,27 @@ const MENU = {
   expired: [],
   autumn: [],
   winter: [],
-  holiday: [],
+  holiday: [
+    ['Gingerbread Latte', 69, C.red, true, '?'],
+    ['Iced Gingerbread Latte', 69, C.blue, true, '?'],
+    ['Gingerbread Frappuccino®', 75, C.tan, true, '?'],
+    ['Gingerbread Matcha Latte', 72, C.sage, true, '?'],
+    ['Gingerbread Cream Iced Matcha Latte', 75, C.teal, true, '?'],
+    ['Toffee Nut Latte', 69, C.red, true, '?'],
+    ['Iced Toffee Nut Latte', 69, C.blue, true, '?'],
+    ['Toffee Nut Frappuccino®', 75, C.tan, true, '?'],
+    ['Toffee Nut Matcha Latte', 72, C.sage, true, '?'],
+    ['Toffee Nut Cream Iced Matcha Latte', 75, C.teal, true, '?'],
+    ['Peppermint Mocha', 69, C.red, true, '?'],
+    ['Iced Peppermint Mocha', 69, C.blue, true, '?'],
+    ['Peppermint Hot Chocolate', 65, C.red, true, '?'],
+    ['Iced Peppermint Chocolate', 65, C.blue, true, '?'],
+    ['Iced Peppermint White Chocolate Matcha', 75, C.teal, true, '?'],
+    ['Butterscotch Vanilla Latte', 69, C.red, true, '?'],
+    ['Iced Butterscotch Vanilla Latte', 69, C.blue, true, '?'],
+    ['Butterscotch Vanilla Hot Chocolate', 65, C.red, true, '?'],
+    ['Iced Butterscotch Vanilla Hot Chocolate', 65, C.blue, true, '?'],
+  ],
   spring: [],
   summer: [],
   kiosk: [],
