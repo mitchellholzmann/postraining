@@ -1,0 +1,162 @@
+// Menu data for the training POS. Edit freely.
+//
+// Item format: [name, price, color, sized]
+//   price  - NOK incl. MVA. For sized items this is the TALL price.
+//   sized  - true = the till asks for Tall / Grande (+5) / Venti (+10).
+//
+// NOTE: on the real till, sized drinks show "0" on the button, so their prices
+// were not visible in the photos. Every price on a `true` line below (and the
+// ones marked "guess") is a PLACEHOLDER - replace with your real prices.
+
+const C = {
+  gold: '#b3a05a',
+  tan: '#b8934f',
+  orange: '#c08a4a',
+  red: '#b4533a',
+  sage: '#6f9c97',
+  steel: '#5d8aa3',
+  teal: '#3b8ea6',
+  blue: '#2f8fb5',
+  sky: '#5f94bb',
+  navy: '#1e4d63',
+  dark: '#2a2e38',
+  brown: '#2b2020',
+  light: '#a9afb4',
+};
+
+const CATEGORIES = [
+  { id: 'coffee', name: 'Coffee', icon: 'cup' },
+  { id: 'frapp', name: 'Frappuccino® blended beverages', icon: 'cup' },
+  { id: 'pastries', name: 'Muffins & Pastries', icon: 'muffin' },
+  { id: 'food', name: 'Food', icon: 'croissant' },
+  { id: 'otherbev', name: 'Other Beverages', icon: 'bottle' },
+  { id: 'tea', name: 'Teavana Tea & Refresha', icon: 'bottle' },
+  { id: 'merch', name: 'Merchandise', icon: 'plus' },
+  { id: 'mug', name: 'STB MUG YAH', icon: 'plus' },
+  { id: 'bean', name: 'Whole Bean/Tea', icon: 'scale' },
+  { id: 'other', name: 'Other', icon: 'clipboard' },
+  { id: 'expired', name: 'Expired', icon: 'dots' },
+  { id: 'autumn', name: 'Autumn' },
+  { id: 'winter', name: 'Winter' },
+  { id: 'holiday', name: 'Holiday' },
+  { id: 'spring', name: 'Spring' },
+  { id: 'summer', name: 'Summer' },
+  { id: 'kiosk', name: 'Kiosk Addons', icon: 'x' },
+];
+
+const MENU = {
+  coffee: [
+    ['Caffè Americano', 49, C.gold, true],
+    ['Caffè Latte', 59, C.gold, true],
+    ['Nybrygget kaffe', 42, C.gold, true],
+    ['Caffè Mocha', 65, C.gold, true],
+    ['Cappuccino', 59, C.gold, true],
+    ['Caramel Cloud Macchiato', 69, C.gold, true],
+
+    ['Caramel Macchiato', 67, C.gold, true],
+    ['Chai Tea Latte', 63, C.gold, true],
+    ['Cortado', 59, C.gold],
+    ['Espresso Solo', 39, C.gold],
+    ['Espresso Doppio', 44, C.gold],
+    ['Espr. Macchiato Solo', 44, C.gold],
+
+    ['Espr. Macchiato Doppio', 49, C.gold],
+    ['Flat White', 61, C.gold],
+    ['White Caffè Mocha', 67, C.gold, true],
+    ['Refill Coffee/Tea', 15, C.orange], // guess
+    ['Signature Hot Chocolate', 62, C.red, true],
+    ['Classic Hot Chocolate', 58, C.red, true],
+
+    ['Kids Hot Chocolate', 42, C.red],
+    ['Kids Milk', 25, C.red],
+    ['Cold Brew', 55, C.blue, true],
+    ['Cold Brew Latte', 59, C.blue, true],
+    ['Iced Brown Sugar Oat Shaken Espresso', 69, C.blue, true],
+    ['Iced White Mocha Oat Shaken Espresso', 69, C.blue, true],
+
+    ['Add Venti Upgrade', 10, C.dark],
+    ['Add Grande Upgrade', 5, C.dark],
+    ['Water cup', 6, C.sky],
+    ['Steamet Melk', 30, C.sky], // guess
+  ],
+
+  frapp: [
+    ['Frappuccino® Caramel', 72, C.brown, true],
+    ['Frappuccino® Caramel & Cream', 72, C.tan, true],
+    ['Frappuccino® Chai Cream', 72, C.tan, true],
+    ['Frappuccino Chocolate Cream', 72, C.tan, true],
+    ['Frappuccino® Chocolate Chip Cream', 75, C.tan, true],
+    ['Frappuccino® Coffee', 69, C.brown, true],
+
+    ['Frappuccino® Cookies & Cream', 75, C.tan, true],
+    ['Frappuccino® Espresso', 69, C.brown, true],
+    ['Frappuccino® Java Chocolate Chip', 75, C.brown, true],
+    ['Frappuccino® Matcha Cream', 75, C.tan, true],
+    ['Frappuccino® Mocha', 72, C.brown, true],
+    ['Frappuccino® Strawberries & Cream', 75, C.tan, true],
+
+    ['Frappuccino® Vanilla', 69, C.brown, true],
+    ['Frappuccino® Vanilla Cream', 69, C.tan, true],
+    ['Frappuccino® White Mocha', 72, C.brown, true],
+    ['Frappuccino® White Mocha Cream', 72, C.tan, true],
+    ['Puppuccino (Whipped Cream)', 10, C.light],
+  ],
+
+  food: [
+    ['Christmas Ciabatta', 144, C.dark],
+    ['Bagel kremost', 92, C.gold],
+    ['Bagel m/ kremost & røkelaks', 129, C.gold],
+    ['Bagel kylling & bacon', 124, C.gold],
+    ['Brix m/ egg&tomat', 66, C.tan],
+    ['Brix m ost', 64, C.tan],
+
+    ['Havre- og chiabrix med ost & skinke', 69, C.tan],
+    ['Havre og chiabrix med brunost', 62, C.tan],
+    ['Ciabatta kylling', 128, C.red],
+    ['Ciabatta ost og skinke', 112, C.red],
+    ['Ciabatta BLT kylling', 128, C.red],
+    ['Croissant ost & skinke', 76, C.sage],
+
+    ['Croissant kalkun & cheddar', 79, C.sage],
+    ['Foccaccia mozzarella, mortadella og pesto', 139, C.steel],
+    ['Foccaccia mozzarella & pesto', 119, C.steel],
+    ['Vegan Wraps søtpot falafel 1/2', 72, C.dark],
+    ['Chiapudding med mango', 66, C.teal],
+    ['Y.hurt gl.fri Crüsli & Blåbær', 59, C.teal],
+
+    ['Yoghurt Granola & blåbær', 67, C.teal],
+    ['Dark Chocolate Bar 40g', 37, C.navy],
+    ['Milk Chocolate Bar 40g', 37, C.navy],
+    ['Chocolate Coin', 29, C.navy],
+    ['Dark Choc & Peanut Butter Cups', 40, C.navy],
+    ['Iced Gingerbread Cookie', 46, C.navy],
+
+    ['Cookie Shortbread', 42, C.navy],
+    ['Waffle Caramel', 44, C.navy],
+    ['Cookie Straws', 29, C.navy],
+    ['Mixed Roasted Salt Nuts', 42, C.navy],
+    ['Sørlandschips Havsalt 30g', 37, C.navy],
+    ['Klementin', 14, C.light],
+
+    ['Eple rødt', 14, C.light],
+    ['Eple gult', 14, C.light],
+    ['Pære', 14, C.light],
+    ['TGTG Lykkepose', 54, C.light],
+  ],
+
+  // No photos of these screens yet - add items in the same format.
+  pastries: [],
+  otherbev: [],
+  tea: [],
+  merch: [],
+  mug: [],
+  bean: [],
+  other: [],
+  expired: [],
+  autumn: [],
+  winter: [],
+  holiday: [],
+  spring: [],
+  summer: [],
+  kiosk: [],
+};

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training POS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body { height: 100%; }
+    body { font-family: "Segoe UI", system-ui, sans-serif; user-select: none; }
+    html { font-size: clamp(13px, 0.92vw, 22px); }
+    .tile { text-shadow: 0 1px 2px rgba(0,0,0,.45); font-size: 1.05rem; }
+    .icon { width: min(3rem, 5vh); height: min(3rem, 5vh); }
+    #cats .tile { font-size: min(1rem, 2.3vh); overflow: hidden; }
+    .tile:active { filter: brightness(1.25); }
+    .rows-7 { grid-template-rows: repeat(7, minmax(0, 1fr)); }
+    .scallop {
+      height: 14px;
+      background: radial-gradient(circle at 50% 0, #14161c 9px, transparent 10px) 0 0 / 28px 14px repeat-x;
+    }
+  </style>
+</head>
+<body class="bg-[#14161c] text-white overflow-hidden">
+  <div class="h-full flex flex-col p-1 gap-0.5 min-w-[1000px]">
+    <!-- Top bar -->
+    <div id="topbar" class="h-14 shrink-0 flex gap-0.5"></div>
+
+    <!-- Main area -->
+    <div class="flex-1 min-h-0 flex gap-0.5">
+      <div id="cats" class="w-[27%] grid grid-cols-3 rows-7 gap-0.5"></div>
+      <div id="items" class="flex-1 grid grid-cols-6 rows-7 gap-0.5"></div>
+      <div id="qty" class="w-11 flex flex-col text-xs text-gray-400 bg-[#1b1e26]"></div>
+      <div id="receipt" class="w-[19%] min-w-[16rem] flex flex-col bg-[#3a3f4b]"></div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div id="bottombar" class="h-14 shrink-0 flex gap-0.5"></div>
+  </div>
+
+  <div id="modal" class="hidden fixed inset-0 bg-black/60 items-center justify-center z-10"></div>
+  <div id="toast" class="hidden fixed bottom-20 left-1/2 -translate-x-1/2 bg-black/90 px-5 py-3 rounded text-sm z-20"></div>
+
+  <script src="menu.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
